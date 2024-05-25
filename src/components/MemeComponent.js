@@ -10,15 +10,9 @@ function MemeComponent() {
     const captureRef = useRef(null);
     const [text, setText] = useState("");
     const [selectedFile, setSelectedFile] = useState(null);
-    const [textPosition, setTextPosition] = useState({ x: 0, y: 0 });
 
     const handleFileChange = (e) => {
         setSelectedFile(e.target.files[0]);
-    };
-
-    const handleCancel = () => {
-        inputRef.current.value = null;
-        setSelectedFile(null);
     };
 
     const handleGenerateMeme = async () => {
@@ -133,8 +127,8 @@ function MemeComponent() {
                             <Draggable>
                                 <div style={{
                                     position: 'absolute',
-                                    top: `${textPosition.y}px`,
-                                    left: `${textPosition.x}px`,
+                                    top: '50px',
+                                    left: '60px',
                                     transform: 'translate(-50%, -50%)',
                                     fontSize: '2.5rem',
                                     fontFamily: 'revert',
