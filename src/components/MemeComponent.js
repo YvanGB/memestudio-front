@@ -32,7 +32,7 @@ function MemeComponent() {
                 formData.append('text', text);
 
                 try {
-                    await axios.post('http://localhost:5000/addmeme', formData);
+                    await axios.post('https://memestudioserver.onrender.com/addmeme', formData);
                     alert('Meme uploaded successfully!');
                 } catch (error) {
                     console.error(error);

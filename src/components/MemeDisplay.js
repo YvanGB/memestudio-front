@@ -5,20 +5,10 @@ import { FaDownload } from 'react-icons/fa';
 const MemesDisplay = () => {
   const [memes, setMemes] = useState([]);
 
-  // Fonction pour générer le lien de partage pour Facebook
-const generateFacebookShareLink = (url) => {
-  return `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
-};
-
-// Fonction pour générer le lien de partage pour Twitter
-const generateTwitterShareLink = (text, url) => {
-  return `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
-};
-
   useEffect(() => {
     const fetchMemes = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/getmemes');
+        const response = await axios.get('https://memestudioserver.onrender.com/getmemes');
         setMemes(response.data);
       } catch (error) {
         console.error('Error fetching memes:', error);
@@ -30,7 +20,7 @@ const generateTwitterShareLink = (text, url) => {
 
   const handleDownloadMeme = (imagePath) => {
     const link = document.createElement('a');
-    link.href = `http://localhost:5000/${imagePath}`;
+    link.href = `https://memestudioserver.onrender.com/${imagePath}`;
     link.download = 'meme.png';
     link.click();
   };
@@ -40,7 +30,7 @@ const generateTwitterShareLink = (text, url) => {
       {memes.map((meme) => (
         <div key={meme._id} style={styles.memeItem}>
           <div style={styles.imageWrapper}>
-            <img src={`http://localhost:5000/${meme.imagePath}`} alt="meme" style={styles.memeImage} />
+            <img src={`https://memestudioserver.onrender.com/${meme.imagePath}`} alt="meme" style={styles.memeImage} />
   
             <FaDownload
               size={30}
