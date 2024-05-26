@@ -7,7 +7,7 @@ function Header() {
         textAlign: 'center',
         backgroundColor: 'black',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
     }}>
         <h1 style={{color: 'orange', fontSize: '5rem', fontFamily:'cursive'}}>MemeStudio</h1>
     </div>
