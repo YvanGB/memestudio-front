@@ -28,6 +28,8 @@ function MemeComponent() {
                 try {
                     await axios.post('https://memestudioserver.onrender.com/addmeme', formData);
                     alert('Meme uploaded successfully!');
+                    setSelectedFile(null); 
+                    setText(""); 
                 } catch (error) {
                     console.error(error);
                 }
@@ -46,6 +48,8 @@ function MemeComponent() {
             link.href = canvas.toDataURL('image/png');
             link.download = 'meme.png';
             link.click();
+            setSelectedFile(null); 
+            setText(""); 
         } catch (error) {
             console.error('Error downloading meme:', error);
         }
@@ -145,8 +149,8 @@ function MemeComponent() {
 
             {selectedFile && (
                 <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '10px', }}>
-                    <Button style={{marginRight:15}} variant="primary" onClick={handleGenerateMeme} size="sm">Générer meme</Button>
-                    <Button style={{marginLeft:15}} variant="secondary" onClick={handleDownloadMeme} size="sm">Télécharger meme</Button>
+                    <Button style={{marginRight:15, fontSize:16}} variant="primary" onClick={handleGenerateMeme} size="sm">Générer meme</Button>
+                    <Button style={{marginLeft:15,fontSize:16, backgroundColor:'orange'}} variant="secondary" onClick={handleDownloadMeme} size="sm">Télécharger meme</Button>
                 </div>
             )}
 
